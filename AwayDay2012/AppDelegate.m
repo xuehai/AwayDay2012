@@ -122,9 +122,24 @@
 }
 
 #pragma mark - util method
+/**
+ save user's state to the NSUserDefault
+ */
 -(void)saveUserState{
     [[NSUserDefaults standardUserDefaults] setObject:self.userState forKey:away_day_user_state_key];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+/*
+ hide the bottom menu view
+ */
+-(void)hideMenuView{
+    [self.menuViewController.view setFrame:CGRectMake(0, 480, self.menuViewController.view.frame.size.width, self.menuViewController.view.frame.size.height)];
+}
+/**
+ show the bottom menu view
+ */
+-(void)showMenuView{
+    [self.menuViewController.view setFrame:CGRectMake(0, 450, self.menuViewController.view.frame.size.width, self.menuViewController.view.frame.size.height)];
 }
 
 @end

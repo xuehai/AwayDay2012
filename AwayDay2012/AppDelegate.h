@@ -23,6 +23,19 @@
 @property(nonatomic, retain) MenuViewController *menuViewController;
 @property(nonatomic, retain) NSMutableDictionary *userState;
 
+/**
+ save user's state to the NSUserDefault
+ */
 -(void)saveUserState;
+
+/*
+ hide the bottom menu view
+ */
+-(void)hideMenuView;
+
+/**
+ show the bottom menu view
+ */
+-(void)showMenuView;
 
 @end

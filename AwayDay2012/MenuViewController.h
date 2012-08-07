@@ -4,7 +4,8 @@
 //
 //  Created by xuehai zeng on 12-8-3.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
-//
+
+//  the bottom menu view
 
 #import <UIKit/UIKit.h>
 

@@ -4,7 +4,8 @@
 //
 //  Created by xuehai zeng on 7/31/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
+
+//  user uses the view to set a reminder
 
 #import <UIKit/UIKit.h>
 #import "Session.h"

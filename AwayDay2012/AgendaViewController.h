@@ -4,7 +4,8 @@
 //
 //  Created by xuehai zeng on 7/31/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
+
+//  the view to list the agenda
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>

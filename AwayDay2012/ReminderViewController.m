@@ -46,6 +46,9 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    AppDelegate *appDelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate hideMenuView];
+    
     BOOL found=NO;
     //check if there has been scheduled a reminder for the session
     for(UILocalNotification *notification in [[UIApplication sharedApplication]scheduledLocalNotifications]){
@@ -69,6 +72,12 @@
         [self.timePicker selectRow:0 inComponent:0 animated:NO];
         self.choosedTime=[NSNumber numberWithInt:0];
     }
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    AppDelegate *appDelegate=(AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate showMenuView];
 }
 
 #pragma mark - util method
