@@ -15,6 +15,8 @@
 #import "ReminderViewController.h"
 #import "TopSessionClockView.h"
 #import "EGORefreshTableHeaderView.h"
+#import "InputNameViewController.h"
+#import "PostShareViewController.h"
 
 @interface AgendaViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, EGORefreshTableHeaderDelegate>{
     BOOL loading;
@@ -29,6 +31,9 @@
 @property(nonatomic, retain) IBOutlet TopSessionClockView *clockView;
 @property(nonatomic, retain) IBOutlet UILabel *topSessionRestTimeLabel;
 @property(nonatomic, retain) EGORefreshTableHeaderView *refreshView;
+@property(nonatomic, retain) InputNameViewController *inputNameViewController;
+@property(nonatomic, retain) PostShareViewController *postShareViewController;
+
 
 /**
  load the agenda list and their sessions
@@ -53,5 +58,6 @@
 -(IBAction)attendButtonPressed:(id)sender;
 -(IBAction)remindButtonPressed:(id)sender;
 -(IBAction)shareButtonPressed:(id)sender;
+-(IBAction)nameInputDoneButtonPressed:(id)sender;
 
 @end

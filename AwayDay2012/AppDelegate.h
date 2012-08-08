@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "AgendaViewController.h"
-#import "ShareViewController.h"
+#import "ShareListViewController.h"
 #import "MenuViewController.h"
 #import "SettingViewController.h"
 
@@ -18,7 +18,7 @@
 @property (strong, nonatomic) UIWindow *window;
 @property(nonatomic, retain) UINavigationController *navigationController;
 @property(nonatomic, retain) AgendaViewController *agendaViewController;
-@property(nonatomic, retain) ShareViewController *shareViewController;
+@property(nonatomic, retain) ShareListViewController *shareListViewController;
 @property(nonatomic, retain) SettingViewController *settingViewController;
 @property(nonatomic, retain) MenuViewController *menuViewController;
 @property(nonatomic, retain) NSMutableDictionary *userState;

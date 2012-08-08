@@ -38,7 +38,7 @@
 }
 -(IBAction)reminderListButtonPressed:(id)sender{
     AppDelegate *appDelegate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
-    [appDelegate.navigationController setViewControllers:[NSArray arrayWithObject:appDelegate.shareViewController] animated:NO];
+    [appDelegate.navigationController setViewControllers:[NSArray arrayWithObject:appDelegate.shareListViewController] animated:NO];
     [self.chooseFlagImageView setFrame:CGRectMake(0, 74, 4, 43)];
 }
 -(IBAction)settingButtonPressed:(id)sender{

@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString const *kUserReminderKey;
+extern NSString const *kUserNameKey;
+
 @interface AppConstant : NSObject
 
 @end

@@ -10,4 +10,8 @@
 
 @interface InputNameViewController : UIViewController
 
+@property(nonatomic, retain) IBOutlet UITextField *userNameField;
+
+-(IBAction)inputDoneButtonPressed:(id)sender;
+
 @end

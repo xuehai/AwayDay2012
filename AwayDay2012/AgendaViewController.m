@@ -9,6 +9,8 @@
 #import "AgendaViewController.h"
 #import "TopSessionClockView.h"
 #import "AppHelper.h"
+#import "AppDelegate.h"
+#import "AppConstant.h"
 
 #define tag_cell_view_start 1001
 #define tag_cell_view_session_detail_view   10002
@@ -23,6 +25,8 @@
 @synthesize clockView=_clockView;
 @synthesize topSessionRestTimeLabel=_topSessionRestTimeLabel;
 @synthesize refreshView=_refreshView;
+@synthesize inputNameViewController=_inputNameViewController;
+@synthesize postShareViewController=_postShareViewController;
 
 - (void)viewDidLoad
 {
@@ -43,6 +47,19 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+    
+    AppDelegate *appDelegate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
+    NSString *userName=[appDelegate.userState objectForKey:kUserNameKey];
+    if(userName==nil || userName.length==0){
+        //1st lauch, ask for user's name
+        if(self.inputNameViewController==nil){
+            InputNameViewController *invc=[[InputNameViewController alloc]init];
+            self.inputNameViewController=invc;
+            [invc release];
+        }
+        [self presentModalViewController:self.inputNameViewController animated:NO];
+    }
+    
     [self.agendaTable setSeparatorColor:[UIColor colorWithRed:280/255.0 green:280/255.0 blue:280/255.0 alpha:1.0f]];
     if(self.agendaList==nil){
         NSMutableArray *array=[[NSMutableArray alloc]init];
@@ -289,6 +306,19 @@
     [self.navigationController pushViewController:self.reminderViewController animated:YES];
 }
 -(IBAction)shareButtonPressed:(id)sender{
+    if(self.postShareViewController==nil){
+        PostShareViewController *psvc=[[PostShareViewController alloc]initWithNibName:@"PostShareViewController" bundle:nil];
+        self.postShareViewController=psvc;
+        [psvc release];
+    }
+    
+    Agenda *agenda=[self.agendaList objectAtIndex:self.selectedCell.section];
+    Session *session=[agenda.sessions objectAtIndex:self.selectedCell.row];
+    [self.postShareViewController setSession:session];
+    [self.navigationController pushViewController:self.postShareViewController animated:YES];
+}
+
+-(IBAction)nameInputDoneButtonPressed:(id)sender{
     
 }
 
@@ -414,6 +444,8 @@
     [_clockView release];
     [_topSessionRestTimeLabel release];
     [_refreshView release];
+    [_inputNameViewController release];
+    [_postShareViewController release];
 }
 
 @end

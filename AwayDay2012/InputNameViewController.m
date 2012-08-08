@@ -7,21 +7,11 @@
 //
 
 #import "InputNameViewController.h"
-
-@interface InputNameViewController ()
-
-@end
+#import "AppDelegate.h"
+#import "AppConstant.h"
 
 @implementation InputNameViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize userNameField=_userNameField;
 
 - (void)viewDidLoad
 {
@@ -29,16 +19,33 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    AppDelegate *appDelegate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
+    [appDelegate hideMenuView];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    AppDelegate *appDelegate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
+    [appDelegate showMenuView];
+}
+
+#pragma mark - UIAction method
+-(IBAction)inputDoneButtonPressed:(id)sender{
+    NSString *name=[self.userNameField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if(name.length==0) return;
+    
+    AppDelegate *appDelegate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
+    [appDelegate.userState setObject:self.userNameField.text forKey:kUserNameKey];
+    [appDelegate saveUserState];
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    [_userNameField release];
 }
 
 @end

@@ -8,6 +8,9 @@
 
 #import "AppConstant.h"
 
+NSString const *kUserReminderKey=@"user_reminder";
+NSString const *kUserNameKey=@"user_name";
+
 @implementation AppConstant
 
 @end

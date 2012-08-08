@@ -8,6 +8,7 @@
 //  the Agenda View
 
 #import "AppDelegate.h"
+#import "AppConstant.h"
 
 #define away_day_user_state_key @"away_day_2012_user_state"
 
@@ -17,7 +18,7 @@
 @synthesize agendaViewController=_agendaViewController;
 @synthesize userState=_userState;
 @synthesize navigationController=_navigationController;
-@synthesize shareViewController=_shareViewController;
+@synthesize shareListViewController=_shareListViewController;
 @synthesize menuViewController=_menuViewController;
 @synthesize settingViewController=_settingViewController;
 
@@ -27,7 +28,7 @@
     [_agendaViewController release];
     [_userState release];
     [_navigationController release];
-    [_shareViewController release];
+    [_shareListViewController release];
     [_menuViewController release];
     [_settingViewController release];
     [super dealloc];
@@ -44,12 +45,13 @@
 		self.userState=tmpDic;
 	}
     if(self.userState==nil){
+        //1st launch
         NSMutableDictionary *dic=[[NSMutableDictionary alloc]init];
         self.userState=dic;
         [dic release];
         
         NSMutableArray *reminders=[[NSMutableArray alloc]init];
-        [self.userState setObject:reminders forKey:@"user_reminder"];
+        [self.userState setObject:reminders forKey:kUserReminderKey];
         [reminders release];
     }
     
@@ -58,10 +60,10 @@
         self.agendaViewController=rvc;
         [rvc release];
     }
-    if(self.shareViewController==nil){
-        ShareViewController *svc=[[ShareViewController alloc]initWithNibName:@"ShareViewController" bundle:nil];
-        self.shareViewController=svc;
-        [svc release];
+    if(self.shareListViewController==nil){
+        ShareListViewController *slvc=[[ShareListViewController alloc]initWithNibName:@"ShareListViewController" bundle:nil];
+        self.shareListViewController=slvc;
+        [slvc release];
     }
     if(self.settingViewController==nil){
         SettingViewController *svc=[[SettingViewController alloc]initWithNibName:@"SettingViewController" bundle:nil];
