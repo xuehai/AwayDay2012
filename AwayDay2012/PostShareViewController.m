@@ -1,18 +1,18 @@
 //
-//  ShareViewController.m
+//  PostShareViewController.m
 //  AwayDay2012
 //
-//  Created by xuehai zeng on 12-8-3.
+//  Created by xuehai zeng on 12-8-8.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "ShareViewController.h"
+#import "PostShareViewController.h"
 
-@interface ShareViewController ()
+@interface PostShareViewController ()
 
 @end
 
-@implementation ShareViewController
+@implementation PostShareViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
