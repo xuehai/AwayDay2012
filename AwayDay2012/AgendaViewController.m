@@ -34,6 +34,16 @@
     self.selectedCell=[NSIndexPath indexPathForRow:-1 inSection:-1];
     loading=NO;
     
+    UISwipeGestureRecognizer *swipe=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeGesture:)];
+    [swipe setDirection:UISwipeGestureRecognizerDirectionUp];
+    [self.view addGestureRecognizer:swipe];
+    [swipe release];
+    
+    swipe=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeGesture:)];
+    [swipe setDirection:UISwipeGestureRecognizerDirectionDown];
+    [self.view addGestureRecognizer:swipe];
+    [swipe release];
+    
     if(self.refreshView==nil){
         EGORefreshTableHeaderView *view=[[EGORefreshTableHeaderView alloc]initWithFrame:CGRectMake(0, -200, 320, 200)];
         self.refreshView=view;
@@ -316,10 +326,6 @@
     Session *session=[agenda.sessions objectAtIndex:self.selectedCell.row];
     [self.postShareViewController setSession:session];
     [self.navigationController pushViewController:self.postShareViewController animated:YES];
-}
-
--(IBAction)nameInputDoneButtonPressed:(id)sender{
-    
 }
 
 #pragma mark - UITableView method

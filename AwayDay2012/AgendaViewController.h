@@ -34,7 +34,6 @@
 @property(nonatomic, retain) InputNameViewController *inputNameViewController;
 @property(nonatomic, retain) PostShareViewController *postShareViewController;
 
-
 /**
  load the agenda list and their sessions
  */
@@ -58,6 +57,5 @@
 -(IBAction)attendButtonPressed:(id)sender;
 -(IBAction)remindButtonPressed:(id)sender;
 -(IBAction)shareButtonPressed:(id)sender;
--(IBAction)nameInputDoneButtonPressed:(id)sender;
 
 @end

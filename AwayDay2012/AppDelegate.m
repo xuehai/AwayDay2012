@@ -21,6 +21,7 @@
 @synthesize shareListViewController=_shareListViewController;
 @synthesize menuViewController=_menuViewController;
 @synthesize settingViewController=_settingViewController;
+@synthesize userActivityViewController=_userActivityViewController;
 
 - (void)dealloc
 {
@@ -31,6 +32,7 @@
     [_shareListViewController release];
     [_menuViewController release];
     [_settingViewController release];
+    [_userActivityViewController release];
     [super dealloc];
 }
 
@@ -70,6 +72,11 @@
         self.settingViewController=svc;
         [svc release];
     }
+    if(self.userActivityViewController==nil){
+        UserActivityViewController *uavc=[[UserActivityViewController alloc]initWithNibName:@"UserActivityViewController" bundle:nil];
+        self.userActivityViewController=uavc;
+        [uavc release];
+    }
     
     if(self.navigationController==nil){
         UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:self.agendaViewController];
@@ -84,7 +91,7 @@
         self.menuViewController=mvc;
         [mvc release];
     }
-    [self.menuViewController.view setFrame:CGRectMake(0, 450, 320, 159)];
+    [self.menuViewController.view setFrame:CGRectMake(0, 450, 320, 199)];
     [self.window addSubview:self.menuViewController.view];
     
     self.window.backgroundColor = [UIColor whiteColor];

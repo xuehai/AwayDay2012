@@ -12,6 +12,7 @@
 #import "ShareListViewController.h"
 #import "MenuViewController.h"
 #import "SettingViewController.h"
+#import "UserActivityViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -21,6 +22,7 @@
 @property(nonatomic, retain) ShareListViewController *shareListViewController;
 @property(nonatomic, retain) SettingViewController *settingViewController;
 @property(nonatomic, retain) MenuViewController *menuViewController;
+@property(nonatomic, retain) UserActivityViewController *userActivityViewController;
 @property(nonatomic, retain) NSMutableDictionary *userState;
 
 /**

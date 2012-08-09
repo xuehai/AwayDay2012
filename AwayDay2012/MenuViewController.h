@@ -17,6 +17,9 @@
 -(IBAction)agendaButtonPressed:(id)sender;
 -(IBAction)reminderListButtonPressed:(id)sender;
 -(IBAction)settingButtonPressed:(id)sender;
+-(IBAction)myPathButtonPressed:(id)sender;
+
 -(IBAction)handleTapGesture:(UITapGestureRecognizer *)sender;
+-(IBAction)handleSwipeGesture:(UISwipeGestureRecognizer *)sender;
 
 @end
